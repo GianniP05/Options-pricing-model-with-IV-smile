@@ -29,9 +29,10 @@ models/
   SVI_preprocess.py    # Data fetch + preprocessing
   SVI.py               # SVI calibration + plotting
 examples/
-  plot_svi_demo.py     # Example script
-notebooks/
-  demo_SVI.ipynb       # Jupyter demo 
+  plot_svi_demo.py    
+  plot_delta_heatmap.py
+  delta_heatmap_example.png
+  TSLA_svi_plot_example.png
 requirements.txt       # Required libraries
 README.md
 ```
