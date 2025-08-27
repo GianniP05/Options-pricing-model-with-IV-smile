@@ -3,7 +3,7 @@ This repo contains a clean pipeline to fetch option chains, compute and plot imp
 # Features
 - Compute options theoretical price with the black scholes model
 - Fetch options with `yfinance`
-- Compute IVs (Newton solver) and Greeks (Δ, Γ, Θ, Vega, ρ)
+- Compute IVs (Brent's method) and Greeks (Δ, Γ, Θ, Vega, ρ)
 - Clean OTM quotes; apply put-call parity to convert puts → synthetic calls
 - Calibrate **SVI** (a, b, ρ, m, σ) per expiry via weighted least squares
 - Plot the fitted IV smile (SVI curve) or the Greeks heatmap
@@ -47,7 +47,8 @@ LICENSE
 - **Wikipedia:** [Stochastic Volatility Inspired model](https://en.wikipedia.org/wiki/Stochastic_volatility_inspired_model)  
 - **Hull, J. (2018).** *Options, Futures, and Other Derivatives* (10th ed.). Pearson.  
 - **YFinance Documentation:** [pypi.org/project/yfinance](https://pypi.org/project/yfinance/)  
-- **SciPy Optimize Docs:** [scipy.optimize](https://docs.scipy.org/doc/scipy/reference/optimize.html)  
+- **SciPy Optimize Docs:** [scipy.optimize](https://docs.scipy.org/doc/scipy/reference/optimize.html)
+- **SciPy Brentq Docs:** [scipy.optimize.brentq](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.brentq.html)
 - **Matplotlib Documentation:** [matplotlib.org/stable](https://matplotlib.org/stable/)  
 
 These references were used to understand and implement the theoretical models (Black–Scholes, Greeks, Implied Vol solver, and SVI calibration) and to handle financial data.
