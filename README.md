@@ -1,12 +1,12 @@
 # Options-pricing-model-with-IV-smile
-This repo contains a clean pipeline to fetch option chains, compute implied vols and Greeks, and fit a single-expiry SVI smile. It’s a solid milestone toward a full volatility surface.
+This repo contains a clean pipeline to fetch option chains, compute and plot implied vols and Greeks, and fit a single-expiry SVI smile. It’s a solid milestone toward a full volatility surface.
 # Features
 - Compute options theoretical price with the black scholes model
 - Fetch options with `yfinance`
 - Compute IVs (Newton solver) and Greeks (Δ, Γ, Θ, Vega, ρ)
 - Clean OTM quotes; apply put-call parity to convert puts → synthetic calls
 - Calibrate **SVI** (a, b, ρ, m, σ) per expiry via weighted least squares
-- Plot the fitted IV smile (SVI curve)
+- Plot the fitted IV smile (SVI curve) or the Greeks heatmap
 # Installation
 ```bash
 git clone https://github.com/<your-username>/Options-pricing-model-with-IV-smile.git
