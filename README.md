@@ -35,6 +35,7 @@ examples/
   TSLA_svi_plot_example.png
 requirements.txt       # Required libraries
 README.md
+LICENSE
 ```
 # Roadmap
 - [ ] Extend to multi-expiry 3D volatility surface
