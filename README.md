@@ -32,7 +32,7 @@ examples/
   plot_svi_demo.py    
   plot_delta_heatmap.py
   delta_heatmap_example.png
-  TSLA_svi_plot_example.png
+  TSLA_svi_example.png
 requirements.txt       # Required libraries
 README.md
 LICENSE
