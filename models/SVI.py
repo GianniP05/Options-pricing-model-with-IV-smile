@@ -95,6 +95,64 @@ def plot_SVI(ticker, expiry):
     plt.legend()
     plt.show()
 
+def SVI_maturities_chart(ticker, expiries):
+    """
+    Plot SVI implied volatility smiles across multiple maturities.
+
+    This function generates a dashboard-style figure:
+    - Left panel: Overlays the fitted SVI volatility smiles for all provided expiries,
+      with a vertical line marking ATM (log-moneyness = 0).
+    - Right panel: Up to 4 subplots, each showing one expiry with its fitted SVI smile
+      and the corresponding market mid implied volatilities. The ATM IV is highlighted.
+
+    Parameters
+    ----------
+    ticker : str
+        Stock ticker symbol (e.g. "TSLA").
+    expiries : list of str
+        List of option expiry dates in 'YYYY-MM-DD' format.
+    """
+    fig = plt.figure(figsize=(14, 6))
+    gs = gridspec.GridSpec(4, 2, width_ratios=[2, 1])  # 4 rows, 2 cols
+
+    # ----- LEFT: main plot (all expiries together) -----
+    ax_main = fig.add_subplot(gs[:, 0])  # spans all rows, left col
+
+    # store colors by expiry
+    colors = {}
+
+    for expiry in expiries:
+        IV, k, IV_market_mids = get_SVI(ticker, expiry)
+        k = np.asarray(k, float).reshape(-1)
+
+        line, = ax_main.plot(k, IV, label=f"{expiry}")
+        color = line.get_color()      
+        colors[expiry] = color        
+
+    ax_main.axvline(x=0, color='purple', linestyle="--", label='ATM IV')
+    ax_main.set_xlabel("Log-moneyness: ln(Strike/Forward Price)")
+    ax_main.set_ylabel("Implied Vol")
+    ax_main.set_title(f"SVI smiles for {ticker} across maturities")
+    ax_main.legend(fontsize=8)
+
+    # ----- RIGHT: individual subplots for each expiry -----
+    for i, expiry in enumerate(expiries[:4]):  # take up to 4 expiries
+        IV, k, IV_market_mids = get_SVI(ticker, expiry)
+        k = np.asarray(k, float).reshape(-1)
+
+        ax = fig.add_subplot(gs[i, 1])
+        ax.plot(k, IV, color=colors[expiry], zorder=2)  
+        ax.scatter(k, IV_market_mids, s=15, alpha=0.4, label="Market mids",
+                   color=colors[expiry], zorder=1)
+        idx = np.argmin(np.abs(k - 0))
+        x0, y0 = k[idx], IV[idx]
+        ax.scatter(x0, y0, color="purple", s=15, alpha=0.7, label=f'ATM IV: {round(y0, 2)}', zorder=3)
+        ax.set_title(f"Market vs SVI for {expiry}", fontsize=9)
+
+        ax.legend(fontsize=7)
+
+    plt.tight_layout()
+    plt.show()
 
 
 
