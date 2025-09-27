@@ -45,6 +45,7 @@ LICENSE
 - [ ] Extend to multi-expiry 3D volatility surface
 - [ ] Add no-arbitrage checks
 - [ ] Build a Streamlit UI
+- [ ] Add strategies
 # References & Sources
 - **Gatheral, J. (2006).** *The Volatility Surface: A Practitioner’s Guide*. Wiley Finance.  
 - **Jim Gatheral’s SVI Notes:** [SVI model slides (Baruch College)](https://faculty.baruch.cuny.edu/jgatheral/svi.pdf)  
