@@ -7,6 +7,7 @@ This repo contains a clean pipeline to fetch option chains, compute and plot imp
 - Clean OTM quotes; apply put-call parity to convert puts → synthetic calls
 - Calibrate **SVI** (a, b, ρ, m, σ) per expiry via weighted least squares
 - Plot the fitted IV smile (SVI curve) or the Greeks heatmap
+- Plot IV smiles across maturities and compare the model fitted smiles with the market mid prices and their volatilities
 # Installation
 ```bash
 git clone https://github.com/<your-username>/Options-pricing-model-with-IV-smile.git
@@ -15,10 +16,12 @@ pip install -r requirements.txt
 ```
 # Quick start
 ```bash
-from models.SVI import plot_SVI
+from models.SVI import plot_SVI, SVI_maturities_chart
 
-# Example: plot TSLA IV smile for Aug 29, 2025
+# Example 1: plot TSLA IV smile for Aug 29, 2025
 plot_SVI("TSLA", "2025-08-29")
+# Example 2: plot TSLA IV smile for 4 different maturities
+SVI_maturities_chart('TSLA', ['2025-10-03', '2025-10-10', '2025-10-17', '2025-10-24'])
 ```
 # Repo structure
 ```bash
@@ -33,6 +36,7 @@ examples/
   plot_delta_heatmap.py
   delta_heatmap_example.png
   TSLA_svi_example.png
+  TSLA_svi_maturities_chart_example.png
 requirements.txt       # Required libraries
 README.md
 LICENSE
