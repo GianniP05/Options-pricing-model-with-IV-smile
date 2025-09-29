@@ -48,8 +48,7 @@ LICENSE
 - [ ] Add strategies
 # References & Sources
 - **Gatheral, J. (2006).** *The Volatility Surface: A Practitioner’s Guide*. Wiley Finance.  
-- **Jim Gatheral’s SVI Notes:** [SVI model slides (Baruch College)](https://faculty.baruch.cuny.edu/jgatheral/svi.pdf)  
-- **Wikipedia:** [Stochastic Volatility Inspired model](https://en.wikipedia.org/wiki/Stochastic_volatility_inspired_model)  
+- **Jim Gatheral’s SVI Notes:** [SVI model slides (Baruch College)](https://faculty.baruch.cuny.edu/jgatheral/svi.pdf)   
 - **Hull, J. (2018).** *Options, Futures, and Other Derivatives* (10th ed.). Pearson.  
 - **YFinance Documentation:** [pypi.org/project/yfinance](https://pypi.org/project/yfinance/)  
 - **SciPy Optimize Docs:** [scipy.optimize](https://docs.scipy.org/doc/scipy/reference/optimize.html)
